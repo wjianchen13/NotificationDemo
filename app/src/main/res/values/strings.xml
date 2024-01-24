@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">NotificationDemo</string>
+
+    <string name="room_notification_id">room_id</string>
+    <string name="room_notification_name">房间通知</string>
+    <string name="room_notification_desc">房间通知描述</string>
 </resources>

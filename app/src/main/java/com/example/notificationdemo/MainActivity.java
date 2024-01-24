@@ -6,6 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.notificationdemo.foreground.RoomActivity;
+import com.example.notificationdemo.foreground.RoomEvent;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -25,4 +32,13 @@ public class MainActivity extends AppCompatActivity {
     public void onTest3(View v) {
         startActivity(new Intent(this, PermissionActivity.class));
     }
+
+    /**
+     * 模拟进入房间，切换到桌面，点击通知返回
+     * @param v
+     */
+    public void onTest4(View v) {
+        startActivity(new Intent(this, RoomActivity.class));
+    }
+
 }
