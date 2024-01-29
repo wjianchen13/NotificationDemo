@@ -12,7 +12,8 @@ https://github.com/daydayup1/AndroidNotificationDemo
 点击通知切换到前台
 https://blog.csdn.net/github_34402358/article/details/103042694
 
-
+Android 将后台应用切换到前台
+https://blog.51cto.com/u_15329836/5004761
 
 
 
