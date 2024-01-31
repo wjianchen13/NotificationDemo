@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.notificationdemo.BaseApp;
 import com.example.notificationdemo.R;
+import com.example.notificationdemo.badge.BadgeNumberManager;
 import com.example.notificationdemo.utils.NotificationUtils;
 import com.example.notificationdemo.utils.Utils;
 
@@ -28,6 +29,8 @@ import org.greenrobot.eventbus.ThreadMode;
 
 /**
  * NotificationActivity 启动RoomActivity，需要把RoomActivity的launchMode设置成singleTask才行，否则每次都会重建
+ * 通知在后台弹出的时候，每次都会有一个角标，现在小米手机测试是这样，
+ * 如果前台弹出，设置IMPORTANCE_LOW，则没有角标
  */
 public class RoomActivity extends AppCompatActivity {
 
@@ -44,7 +47,9 @@ public class RoomActivity extends AppCompatActivity {
     }
 
     public void onTest(View v) {
-        tvTest.setText("skdfjkasdkfaskjdf");
+//        tvTest.setText("skdfjkasdkfaskjdf");
+        BadgeNumberManager.getInstance().setBadgeNumber(this, 0, "hello", "title");
+//        BadgeNumberManager.getInstance().setBadgeNumber(this, 102);
     }
 
     @Override
@@ -69,7 +74,8 @@ public class RoomActivity extends AppCompatActivity {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void dataReceive(RoomEvent roomEvent) {
         if(roomEvent.isInBackground() && roomEvent.isThis(this)) {
-            showNotification();
+//            showNotification();
+            BadgeNumberManager.getInstance().setBadgeNumber(this, 2, "hello", "title");
         }
     }
 
@@ -98,6 +104,7 @@ public class RoomActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = NotificationUtils.getLivingChannel();
             if (channel != null) {
+                channel.setShowBadge(false);
                 manager.createNotificationChannel(channel);
                 builder = new NotificationCompat.Builder(RoomActivity.this, channel.getId());
             }
@@ -116,7 +123,7 @@ public class RoomActivity extends AppCompatActivity {
         builder.setContentTitle(title);
         builder.setContentText(content);
         builder.setAutoCancel(false);
-        builder.setOngoing(true);
+        builder.setOngoing(false);
 
 //        builder.setAutoCancel(true);
 
