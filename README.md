@@ -15,6 +15,9 @@ https://blog.csdn.net/github_34402358/article/details/103042694
 Android 将后台应用切换到前台
 https://blog.51cto.com/u_15329836/5004761
 
+前台服务文档
+https://developer.android.google.cn/about/versions/14/changes/fgs-types-required?authuser=19&hl=zh-tw
+https://developer.android.google.cn/about/versions/14/changes/fgs-types-required?hl=hu#media
 
 
 
