@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.example.notificationdemo.foreground.RoomActivity;
 import com.example.notificationdemo.foreground.RoomEvent;
+import com.example.notificationdemo.test5.RoomActivity5;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -40,5 +41,14 @@ public class MainActivity extends AppCompatActivity {
     public void onTest4(View v) {
         startActivity(new Intent(this, RoomActivity.class));
     }
+
+    /**
+     * 模拟进入房间，切换到桌面，点击通知返回
+     * @param v
+     */
+    public void onTest5(View v) {
+        startActivity(new Intent(this, RoomActivity5.class));
+    }
+
 
 }

@@ -34,7 +34,10 @@
         <activity android:name=".foreground.RoomActivity"
             android:launchMode="singleTask"/>
         <activity android:name=".foreground.NotificationActivity" />
-
+        <activity android:name=".test5.RoomActivity5"
+            android:launchMode="singleTask"/>
+        <activity android:name=".test5.NotificationActivity5"
+            android:launchMode="singleTask"/>
     </application>
 
 </manifest>
